@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-app-svc
+  namespace: metrics-app
+  labels:
+    app: metrics-app
+spec:
+  ports:
+    - name: web
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: metrics-app

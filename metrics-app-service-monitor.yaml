@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: metrics-app-service-monitor
+  namespace: metrics-app
+  labels:
+    team: backend
+spec:
+  selector:
+    matchLabels:
+      app: metrics-app
+  endpoints:
+  - path: /actuator/prometheus
+    port: web

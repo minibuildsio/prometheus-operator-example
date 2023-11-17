@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+spec:
+  enableAdminAPI: false
+  evaluationInterval: 30s
+  portName: web
+  resources:
+    requests:
+      memory: 100Mi
+  scrapeInterval: 30s
+  serviceAccountName: prometheus
+  serviceMonitorNamespaceSelector:
+    matchLabels:
+      metrics: prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      team: backend
